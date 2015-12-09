@@ -1,2 +1,2 @@
 # ms-location
-Microservice for locations
+Microservice for a location
