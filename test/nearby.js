@@ -23,3 +23,16 @@ test('getLocationsNearby - right keys wrong datatypes', t => {
         t.fail();
     });
 });
+
+
+
+
+
+test('getLocationsNearby - correct datatypes', t => {
+    nearby.getLocationsNearby({lat: 123, long: 3, options: {}}, (err, data) => {
+        if(err) {
+            return t.fail();
+        }
+        t.pass();
+    });
+});
