@@ -18,8 +18,8 @@ test('getLocationsNearby - totally wrong input data', t => {
 test('getLocationsNearby - right keys wrong datatypes', t => {
     nearby.getLocationsNearby({lat: 'crappapa', long: 'random', options: {}}, (err, data) => {
         if(err) {
-            return t.fail();
+            return t.pass();
         }
-        t.pass();
+        t.fail();
     });
 });
