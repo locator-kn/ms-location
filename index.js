@@ -5,6 +5,7 @@ const seneca = require('seneca')();
 const datebase = require('./lib/database');
 
 const nearby = require('./lib/nearby');
+const schoenhier = require('./lib/schoenhier');
 
 
 
@@ -19,5 +20,6 @@ datebase.connect().then(() => {
     seneca
         .use(transportMethod + '-transport')
         .add(patternPin + ',cmd:nearby', nearby.getLocationsNearby)
+        .add(patternPin + ',cmd:schoenhier', schoenhier.addSchoenhier)
         .listen({type: transportMethod, pin: patternPin});
 });
