@@ -10,7 +10,7 @@ test('getLocationsNearby - totally wrong input data', t => {
         if(err) {
             return t.pass();
         }
-        t.faill();
+        t.fail();
     });
 });
 
