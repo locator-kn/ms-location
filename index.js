@@ -9,6 +9,7 @@ const datebase = require('./lib/database');
 
 const nearby = require('./lib/nearby');
 const schoenhier = require('./lib/schoenhier');
+const location = require('./lib/location');
 
 
 
@@ -25,5 +26,6 @@ datebase.connect().then(() => {
         .add(patternPin + ',cmd:nearby', nearby.getLocationsNearby)
         .add(patternPin + ',cmd:addschoenhier', schoenhier.addSchoenhier)
         .add(patternPin + ',cmd:nearbyschoenhier', schoenhier.getSchoenhiersNearby)
+        .add(patternPin + ',cmd:locationById', location.getLocationById)
         .listen({type: transportMethod, pin: patternPin});
 });
