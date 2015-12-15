@@ -20,6 +20,7 @@ datebase.connect().then(() => {
     seneca
         .use(transportMethod + '-transport')
         .add(patternPin + ',cmd:nearby', nearby.getLocationsNearby)
-        .add(patternPin + ',cmd:schoenhier', schoenhier.addSchoenhier)
+        .add(patternPin + ',cmd:addschoenhier', schoenhier.addSchoenhier)
+        .add(patternPin + ',cmd:nearbyschoenhier', schoenhier.getSchoenhiersNearby)
         .listen({type: transportMethod, pin: patternPin});
 });
