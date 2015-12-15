@@ -1,5 +1,6 @@
 'use strict';
 require('dotenv').config({path: '../.env'});
+
 const seneca = require('seneca')();
 const datebase = require('./lib/database');
 
