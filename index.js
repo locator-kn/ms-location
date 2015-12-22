@@ -22,10 +22,11 @@ datebase.connect().then(() => {
 
     // init seneca and expose functions
     seneca
-        .use(transportMethod + '-transport')
+        //.use(transportMethod + '-transport')
         .add(patternPin + ',cmd:nearby', nearby.getLocationsNearby)
         .add(patternPin + ',cmd:addschoenhier', schoenhier.addSchoenhier)
         .add(patternPin + ',cmd:nearbyschoenhier', schoenhier.getSchoenhiersNearby)
         .add(patternPin + ',cmd:locationById', location.getLocationById)
-        .listen({type: transportMethod, pin: patternPin});
+        //.listen({type: transportMethod, pin: patternPin});
+        .listen({type: 'tcp', port: 7001, pin: patternPin});
 });
