@@ -23,5 +23,5 @@ test('util.updateModifiedDate', t => {
     };
 
     util.updateModifiedDate(target);
-    t.ok(target.modified_date);
+    t.ok(target.$currentDate.modified_date);
 });
