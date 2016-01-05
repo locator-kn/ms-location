@@ -12,7 +12,6 @@ const schoenhier = require('./lib/schoenhier');
 const location = require('./lib/location');
 
 
-
 // select desired transport method
 const transportMethod = process.env['SENECA_TRANSPORT_METHOD'] || 'rabbitmq';
 const patternPin = 'role:location';
@@ -22,11 +21,22 @@ datebase.connect().then(() => {
 
     // init seneca and expose functions
     seneca
-        //.use(transportMethod + '-transport')
+    //.use(transportMethod + '-transport')
         .add(patternPin + ',cmd:nearby', nearby.getLocationsNearby)
         .add(patternPin + ',cmd:addschoenhier', schoenhier.addSchoenhier)
         .add(patternPin + ',cmd:nearbyschoenhier', schoenhier.getSchoenhiersNearby)
         .add(patternPin + ',cmd:locationById', location.getLocationById)
+        .add(patternPin + ',cmd:toggleFavor', location.toggleFavorLocation)
+        //.act({
+        //    role: 'location',
+        //    cmd: 'toggleFavor',
+        //    data: {
+        //        location_id: '567800aafb3dcfc1d9f85436',
+        //        user_id: '56786fe35227864133663976'
+        //    }
+        //}, (err, data) => {
+        //    console.log(err || data);
+        //})
         //.listen({type: transportMethod, pin: patternPin});
         .listen({type: 'tcp', port: 7001, pin: patternPin});
 });
