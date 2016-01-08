@@ -27,12 +27,16 @@ datebase.connect().then(() => {
         .add(patternPin + ',cmd:nearbyschoenhier', schoenhier.getSchoenhiersNearby)
         .add(patternPin + ',cmd:locationById', location.getLocationById)
         .add(patternPin + ',cmd:toggleFavor', location.toggleFavorLocation)
+        .add(patternPin + ',cmd:addimpression,type:text', location.addTextImpression)
         //.act({
         //    role: 'location',
-        //    cmd: 'toggleFavor',
+        //    cmd: 'addimpression',
+        //    type: 'text',
         //    data: {
         //        location_id: '567800aafb3dcfc1d9f85436',
-        //        user_id: '56786fe35227864133663976'
+        //        user_id: '56786fe35227864133663976',
+        //        message: 'Hallo, tolle location das da'
+        //
         //    }
         //}, (err, data) => {
         //    console.log(err || data);
