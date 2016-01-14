@@ -4,6 +4,8 @@ const path = require('path');
 const pwd = path.join(__dirname, '..', '/.env');
 require('dotenv').config({path: pwd});
 
+const util = require('ms-utilities');
+
 const seneca = require('seneca')();
 const datebase = require('./lib/database');
 
@@ -23,6 +25,10 @@ datebase.connect().then(() => {
     // init seneca and expose functions
     seneca
     //.use(transportMethod + '-transport')
+
+        .client({type: 'tcp', port: 7010, host: 'localhost', pin: 'role:reporter'})
+
+        .add(patternPin + ',cmd:nearby', nearby.getLocationsNearby)
         .add(patternPin + ',cmd:nearby', nearby.getLocationsNearby)
         .add(patternPin + ',cmd:addschoenhier', schoenhier.addSchoenhier)
         .add(patternPin + ',cmd:nearbyschoenhier', schoenhier.getSchoenhiersNearby)
@@ -49,5 +55,6 @@ datebase.connect().then(() => {
         //})
         //.listen({type: transportMethod, pin: patternPin});
 
-        .listen({type: 'tcp', port: 7001, pin: patternPin});
+        .listen({type: 'tcp', port: 7001, pin: patternPin})
+        .wrap(patternPin, util.reporter.report);
 });
