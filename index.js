@@ -28,8 +28,8 @@ datebase.connect().then(() => {
         .add(patternPin + ',cmd:nearbyschoenhier', schoenhier.getSchoenhiersNearby)
         .add(patternPin + ',cmd:locationById', location.getLocationById)
         .add(patternPin + ',cmd:addnewlocation',newLoc.addNewLocation)
-        .add(patternPin+',cmd:locationbyname',location.getLocationByTitle)
-
+        //.add(patternPin+',cmd:locationbyname',location.getLocationByTitle)
+        .add(patternPin+',cmd:getlocbyuserid',location.getLocationsOfUser)
         .add(patternPin + ',cmd:toggleFavor', location.toggleFavorLocation)
         .add(patternPin + ',cmd:addimpression,type:text', location.addTextImpression)
         .add(patternPin + ',cmd:addimpression,type:image', location.addImageImpression)
