@@ -49,5 +49,5 @@ datebase.connect().then(() => {
         //})
         //.listen({type: transportMethod, pin: patternPin});
 
-        .listen({type: 'tcp', port: 7001,host: '127.0.0.1', pin: patternPin});
+        .listen({type: 'tcp', port: 7001, pin: patternPin});
 });
