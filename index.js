@@ -32,6 +32,7 @@ datebase.connect().then(() => {
 
         .add(patternPin + ',cmd:toggleFavor', location.toggleFavorLocation)
         .add(patternPin + ',cmd:addimpression,type:text', location.addTextImpression)
+        .add(patternPin + ',cmd:addimpression,type:image', location.addImageImpression)
         .add(patternPin + ',cmd:getlocationstream', location.getLocationStreamById)
         //.act({
         //    role: 'location',
