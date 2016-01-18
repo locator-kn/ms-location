@@ -37,8 +37,13 @@ datebase.connect().then(() => {
         //.add(patternPin+',cmd:locationbyname',location.getLocationByTitle)
         .add(patternPin + ',cmd:getlocbyuserid', location.getLocationsOfUser)
         .add(patternPin + ',cmd:toggleFavor', location.toggleFavorLocation)
+
+        // add impressions
         .add(patternPin + ',cmd:addimpression,type:text', location.addTextImpression)
         .add(patternPin + ',cmd:addimpression,type:image', location.addImageImpression)
+        .add(patternPin + ',cmd:addimpression,type:video', location.addVideoImpression)
+        .add(patternPin + ',cmd:addimpression,type:audio', location.addAudioImpression)
+
         .add(patternPin + ',cmd:getlocationstream', location.getLocationStreamById)
         .add(patternPin + ',cmd:getfavoritelocationbyuserid', location.getFavoriteLocationbyUserId)
         .add(patternPin + ',cmd:count,entity:location,by:userId', location.getCountForLocationsByUserId)
