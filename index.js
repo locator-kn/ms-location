@@ -41,6 +41,7 @@ datebase.connect().then(() => {
         .add(patternPin + ',cmd:addimpression,type:image', location.addImageImpression)
         .add(patternPin + ',cmd:getlocationstream', location.getLocationStreamById)
         .add(patternPin + ',cmd:getfavoritelocationbyuserid', location.getFavoriteLocationbyUserId)
+        .add(patternPin + ',cmd:count,entity:location,by:userId', location.getCountForLocationsByUserId)
         //.act({
         //    role: 'location',
         //    cmd: 'addimpression',
