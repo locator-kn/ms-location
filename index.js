@@ -35,12 +35,20 @@ datebase.connect().then(() => {
         .add(patternPin + ',cmd:locationById', location.getLocationById)
         .add(patternPin + ',cmd:addnewlocation',newLoc.addNewLocation)
         .add(patternPin + ',cmd:deletelocation',location.deleteLocation)
+        .add(patternPin + ',cmd:addnewlocation', newLoc.addNewLocation)
         //.add(patternPin+',cmd:locationbyname',location.getLocationByTitle)
-        .add(patternPin+',cmd:getlocbyuserid',location.getLocationsOfUser)
+        .add(patternPin + ',cmd:getlocbyuserid', location.getLocationsOfUser)
         .add(patternPin + ',cmd:toggleFavor', location.toggleFavorLocation)
+
+        // add impressions
         .add(patternPin + ',cmd:addimpression,type:text', location.addTextImpression)
         .add(patternPin + ',cmd:addimpression,type:image', location.addImageImpression)
+        .add(patternPin + ',cmd:addimpression,type:video', location.addVideoImpression)
+        .add(patternPin + ',cmd:addimpression,type:audio', location.addAudioImpression)
+
         .add(patternPin + ',cmd:getlocationstream', location.getLocationStreamById)
+        .add(patternPin + ',cmd:getfavoritelocationbyuserid', location.getFavoriteLocationbyUserId)
+        .add(patternPin + ',cmd:count,entity:location,by:userId', location.getCountForLocationsByUserId)
         //.act({
         //    role: 'location',
         //    cmd: 'addimpression',
@@ -58,5 +66,4 @@ datebase.connect().then(() => {
 
         .listen({type: 'tcp', port: 7001, pin: patternPin})
         .wrap(patternPin, util.reporter.report);
-
 });
