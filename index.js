@@ -4,7 +4,7 @@ const path = require('path');
 const pwd = path.join(__dirname, '..', '/.env');
 require('dotenv').config({path: pwd});
 
-const util = require('ms-utilities');
+//const util = require('ms-utilities');
 
 const seneca = require('seneca')();
 const datebase = require('./lib/database');
@@ -16,7 +16,7 @@ const newLoc = require('./lib/newLoc');
 
 
 // select desired transport method
-const transportMethod = process.env['SENECA_TRANSPORT_METHOD'] || 'rabbitmq';
+//const transportMethod = process.env['SENECA_TRANSPORT_METHOD'] || 'rabbitmq';
 const patternPin = 'role:location';
 
 // init database
