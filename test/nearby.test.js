@@ -7,45 +7,36 @@ const nearby = proxyquire('../lib/nearby', { './database': databaseStub });
 
 test('getLocationsNearby - totally wrong input data', t => {
     nearby.getLocationsNearby({data: {crap: 'crappapa', bla: 'random'}}, (err, data) => {
-        if(err) {
-            return t.pass();
-        }
-        t.fail();
+        t.is(void 0, data);
+        t.is('ValidationError', err.name);
     });
 });
 
 test('getLocationsNearby - right keys wrong datatypes', t => {
     nearby.getLocationsNearby({data: {lat: 'crappapa', long: 'random', options: {}}}, (err, data) => {
-        if(err) {
-            return t.pass();
-        }
-        t.fail();
+        t.is(void 0, data);
+        t.is('ValidationError', err.name);
     });
 });
 
 test('getLocationsNearby - correct datatypes', t => {
     nearby.getLocationsNearby({data: {lat: 123, long: 3}}, (err, data) => {
-        if(err) {
-            return t.fail();
-        }
-        t.pass();
+
+        t.not(void 0, data);
+        t.is(null, err);
     });
 });
 
 test('getLocationsNearby - corrupt maxLength', t => {
     nearby.getLocationsNearby({data: {lat: 123, long: 3, maxLength: 'not a number'}}, (err, data) => {
-        if(err) {
-            return t.pass();
-        }
-        t.fail();
+        t.is(void 0, data);
+        t.is('ValidationError', err.name);
     });
 });
 
 test('getLocationsNearby - corrupt limit', t => {
     nearby.getLocationsNearby({data: {lat: 123, long: 3, limit: 'not a number'}}, (err, data) => {
-        if(err) {
-            return t.pass();
-        }
-        t.fail();
+        t.is(void 0, data);
+        t.is('ValidationError', err.name);
     });
 });

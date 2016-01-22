@@ -9,7 +9,7 @@ fns.getAllUsers = (message) => {
     return Promise.resolve({doc: 'asd', processId: process.pid});
 };
 
-fns.findDataNearby = (collection, long, lat, options) => {
+fns.findDataNearby = (collection, long, lat) => {
     if (!collection || !long || !lat) {
         return Promise.reject({message: 'collection, long and lat must be defined', code: 4000});
     }
