@@ -33,10 +33,10 @@ datebase.connect().then(() => {
         .add(patternPin + ',cmd:addschoenhier', schoenhier.addSchoenhier)
         .add(patternPin + ',cmd:nearbyschoenhier', schoenhier.getSchoenhiersNearby)
         .add(patternPin + ',cmd:locationById', location.getLocationById)
-        .add(patternPin + ',cmd:addnewlocation',newLoc.addNewLocation)
-        .add(patternPin + ',cmd:deletelocation',location.deleteLocation)
         .add(patternPin + ',cmd:addnewlocation', newLoc.addNewLocation)
-        .add(patternPin+',cmd:locationbyname',location.getLocationByName)
+        .add(patternPin + ',cmd:deletelocation', location.deleteLocation)
+        .add(patternPin + ',cmd:addnewlocation', newLoc.addNewLocation)
+        .add(patternPin + ',cmd:locationbyname', location.getLocationByName)
         .add(patternPin + ',cmd:getlocbyuserid', location.getLocationsOfUser)
         .add(patternPin + ',cmd:toggleFavor', location.toggleFavorLocation)
 
@@ -65,5 +65,5 @@ datebase.connect().then(() => {
         //.listen({type: transportMethod, pin: patternPin});
 
         .listen({type: 'tcp', port: 7001, pin: patternPin});
-      //  .wrap(patternPin, util.reporter.report);
+    //  .wrap(patternPin, util.reporter.report);
 });
