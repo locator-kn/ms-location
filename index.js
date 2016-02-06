@@ -29,13 +29,15 @@ datebase.connect().then(() => {
         .client({type: 'tcp', port: 7010, host: 'localhost', pin: 'role:reporter'})
 
         .add(patternPin + ',cmd:nearby', nearby.getLocationsNearby)
-        .add(patternPin + ',cmd:nearby', nearby.getLocationsNearby)
+
         .add(patternPin + ',cmd:addschoenhier', schoenhier.addSchoenhier)
         .add(patternPin + ',cmd:nearbyschoenhier', schoenhier.getSchoenhiersNearby)
+
         .add(patternPin + ',cmd:locationById', location.getLocationById)
+
         .add(patternPin + ',cmd:addnewlocation', newLoc.addNewLocation)
         .add(patternPin + ',cmd:deletelocation', location.deleteLocation)
-        .add(patternPin + ',cmd:addnewlocation', newLoc.addNewLocation)
+
         .add(patternPin + ',cmd:locationbyname', location.getLocationByName)
         .add(patternPin + ',cmd:getlocbyuserid', location.getLocationsOfUser)
         .add(patternPin + ',cmd:toggleFavor', location.toggleFavorLocation)
