@@ -7,7 +7,7 @@ require('dotenv').config({path: pwd});
 //const util = require('ms-utilities');
 
 const seneca = require('seneca')();
-const datebase = require('./lib/database');
+const database = require('./lib/database');
 
 const nearby = require('./lib/nearby');
 const schoenhier = require('./lib/schoenhier');
@@ -20,7 +20,7 @@ const newLoc = require('./lib/newLoc');
 const patternPin = 'role:location';
 
 // init database
-datebase.connect().then(() => {
+database.connect().then(() => {
 
     // init seneca and expose functions
     seneca
