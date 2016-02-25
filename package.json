@@ -7,7 +7,9 @@
     "test": "ava",
     "documentation": "documentation index.js -o docs/ -f html -g",
     "gendocs": "./generate_docs.sh",
-    "jshint": "jshint --exclude ./node_modules ."
+    "jshint": "jshint --exclude ./node_modules .",
+    "lint": "jshint .",
+    "validate": "npm ls"
   },
   "author": "",
   "license": "MIT",
