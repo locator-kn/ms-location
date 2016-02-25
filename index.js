@@ -41,6 +41,8 @@ database.connect().then(() => {
         .add(patternPin + ',cmd:locationbyname', location.getLocationByName)
         .add(patternPin + ',cmd:getlocbyuserid', location.getLocationsOfUser)
         .add(patternPin + ',cmd:toggleFavor', location.toggleFavorLocation)
+        .add(patternPin + ',cmd:favor', location.favorLocation)
+        .add(patternPin + ',cmd:unfavor', location.unfavorLocation)
 
         // add impressions
         .add(patternPin + ',cmd:addimpression,type:text', location.addTextImpression)
