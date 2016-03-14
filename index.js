@@ -26,7 +26,7 @@ database.connect().then(() => {
     seneca
     //.use(transportMethod + '-transport')
 
-        .client({type: 'tcp', port: 7010, host: 'localhost', pin: 'role:reporter'})
+        //.client({type: 'tcp', port: 7010, host: 'localhost', pin: 'role:reporter'})
 
         .add(patternPin + ',cmd:nearby', nearby.getLocationsNearby)
 
