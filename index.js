@@ -17,15 +17,19 @@ const newLoc = require('./lib/newLoc');
 const util = require('util');
 
 const memwatch = require('memwatch-next');
+const heapdump = require('heapdump');
 
 var hd;
 memwatch.on('leak', info => {
-    log.error('Memory leak detected: ', info);
+    log.fatal('Memory leak detected: ', info);
     if (!hd) {
         hd = new memwatch.HeapDiff();
     } else {
         let diff = hd.end();
-        log.error(util.inspect(diff, true, null));
+        log.fatal(util.inspect(diff, true, null));
+        heapdump.writeSnapshot((err, filename) => {
+            console.log('dump written to', filename);
+        });
         hd = null;
     }
 });
