@@ -4,7 +4,7 @@ const path = require('path');
 const pwd = path.join(__dirname, '..', '/.env');
 require('dotenv').config({path: pwd});
 
-//const util = require('ms-utilities');
+const log = require('ms-utilities').logger;
 
 const seneca = require('seneca')();
 const database = require('./lib/database');
@@ -14,6 +14,21 @@ const schoenhier = require('./lib/schoenhier');
 const location = require('./lib/location');
 const newLoc = require('./lib/newLoc');
 
+const util = require('util');
+
+const memwatch = require('memwatch-next');
+
+var hd;
+memwatch.on('leak', info => {
+    log.error('Memory leak detected: ', info);
+    if (!hd) {
+        hd = new memwatch.HeapDiff();
+    } else {
+        let diff = hd.end();
+        log.error(util.inspect(diff, true, null));
+        hd = null;
+    }
+});
 
 // select desired transport method
 //const transportMethod = process.env['SENECA_TRANSPORT_METHOD'] || 'rabbitmq';
