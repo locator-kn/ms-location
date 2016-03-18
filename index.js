@@ -34,6 +34,12 @@ memwatch.on('leak', info => {
     }
 });
 
+process.on('SIGUSR2', () => {
+    heapdump.writeSnapshot(function(err, filename) {
+        console.log('dump written to', filename);
+    });
+});
+
 // select desired transport method
 //const transportMethod = process.env['SENECA_TRANSPORT_METHOD'] || 'rabbitmq';
 const patternPin = 'role:location';
