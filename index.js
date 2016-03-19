@@ -6,7 +6,12 @@ require('dotenv').config({path: pwd});
 
 //const util = require('ms-utilities');
 
-const seneca = require('seneca')();
+const seneca = require('seneca')({
+    actcache: {
+        active: true,
+        size: 257
+    }
+});
 const database = require('./lib/database');
 
 const nearby = require('./lib/nearby');
