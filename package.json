@@ -10,6 +10,9 @@
     "jshint": "jshint --exclude ./node_modules .",
     "lint": "jshint .",
     "validate": "npm ls"
+  },"repository": {
+    "type": "git",
+    "url": "git+https://github.com/locator-kn/ms-location.git"
   },
   "author": "",
   "license": "MIT",
