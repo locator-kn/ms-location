@@ -73,6 +73,7 @@ database.connect().then(() => {
         //})
         //.listen({type: transportMethod, pin: patternPin});
 
-        .listen({type: 'tcp', port: 7001, pin: patternPin});
+        //.listen({type: 'tcp', port: 7001, pin: patternPin})
+        .use('mesh',{auto:true, pin:patternPin});
     //  .wrap(patternPin, util.reporter.report);
 });
