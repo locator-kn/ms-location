@@ -6,7 +6,12 @@ require('dotenv').config({path: pwd});
 
 //const util = require('ms-utilities');
 
-const seneca = require('seneca')();
+const seneca = require('seneca')({
+    actcache: {
+        active: true,
+        size: 257
+    }
+});
 const database = require('./lib/database');
 
 const nearby = require('./lib/nearby');
@@ -68,6 +73,7 @@ database.connect().then(() => {
         //})
         //.listen({type: transportMethod, pin: patternPin});
 
-        .listen({type: 'tcp', port: 7001, pin: patternPin});
+        //.listen({type: 'tcp', port: 7001, pin: patternPin})
+        .use('mesh',{auto:true, pin:patternPin});
     //  .wrap(patternPin, util.reporter.report);
 });
