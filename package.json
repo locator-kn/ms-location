@@ -10,7 +10,8 @@
     "jshint": "jshint --exclude ./node_modules .",
     "lint": "jshint .",
     "validate": "npm ls"
-  },"repository": {
+  },
+  "repository": {
     "type": "git",
     "url": "git+https://github.com/locator-kn/ms-location.git"
   },
@@ -20,19 +21,17 @@
     "dotenv": "^2.0.0",
     "hoek": "^3.0.4",
     "joi": "^8.0.5",
+    "moment": "^2.12.0",
     "mongodb": "^2.1.16",
     "ms-utilities": "^4.0.0",
+    "seneca": "^2.0.0",
     "seneca-balance-client": "^0.4.0",
-    "seneca-mesh": "^0.7.0",
-    "seneca": "^2.0.0"
+    "seneca-mesh": "^0.7.0"
   },
   "devDependencies": {
     "ava": "^0.14.0",
     "jshint": "^2.9.1",
     "precommit-hook": "^3.0.0",
     "proxyquire": "^1.7.3"
-  },
-  "pre-commit": [
-    "jshint"
-  ]
+  }
 }
