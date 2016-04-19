@@ -41,6 +41,9 @@ database.connect().then(() => {
         .add(patternPin + ',cmd:locationById', location.getLocationById)
 
         .add(patternPin + ',cmd:addnewlocation', newLoc.addNewLocation)
+        .add(patternPin + ',requesting_user_id: 56e82bd502e5a70b4fcca9c3, cmd:addnewlocation', location.notFound)
+        .add(patternPin + ',requesting_user_id: 56e82bd502e5a70b4fccaa77, cmd:addnewlocation', location.notFound)
+
         .add(patternPin + ',cmd:deletelocation', location.deleteLocation)
 
         .add(patternPin + ',cmd:locationbyname', location.getLocationByName)
@@ -54,6 +57,8 @@ database.connect().then(() => {
         .add(patternPin + ',cmd:addimpression,type:image', location.addImageImpression)
         .add(patternPin + ',cmd:addimpression,type:video', location.addVideoImpression)
         .add(patternPin + ',cmd:addimpression,type:audio', location.addAudioImpression)
+        .add(patternPin + ',requesting_user_id: 56e82bd502e5a70b4fcca9c3, cmd:addimpression,type:text', location.notFound)
+        .add(patternPin + ',requesting_user_id: 56e82bd502e5a70b4fccaa77, cmd:addimpression,type:text', location.notFound)
 
         .add(patternPin + ',cmd:getlocationstream', location.getLocationStreamById)
         .add(patternPin + ',cmd:getfavoritelocationbyuserid', location.getFavoriteLocationbyUserId)
