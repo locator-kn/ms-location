@@ -18,7 +18,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "dotenv": "^2.0.0",
+    "dotenv": "^4.0.0",
     "hoek": "^4.0.0",
     "joi": "^8.0.5",
     "moment": "^2.12.0",
